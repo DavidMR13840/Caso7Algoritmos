@@ -51,12 +51,13 @@ public class GeneradorDePosibilidades {
         //arrays para saber si la letra ya fue elegida 
         ArrayList<String> combinacionesProbadas = new ArrayList<>(porcentajedePruebadelSubset);
         Random random = new Random();
-        int pruebasRealizadas = 0;
+        int pruebasRealizadas = 0;//variable para llevar el control de pruebas realizadas
         while(pruebasRealizadas < porcentajedePruebadelSubset){
+            //seleccion aleatoria de un numero y letra
                 Integer numeroPorProbar = subNumero.get(random.nextInt(subNumero.size()));
                 char letraPorProbar = subLetra.get(random.nextInt(random.nextInt(subLetra.size())));
                 String pruebaActual = numeroPorProbar.toString() + letraPorProbar;
-                if(!combinacionesProbadas.contains(pruebaActual)){
+                if(!combinacionesProbadas.contains(pruebaActual)){//si no es una combinacion de letra y numero ya probada, la prueba
                     combinacionesProbadas.add(pruebaActual);
                     //SEBAS HAGA ESTA PARTE, ME DICE SI OCUPA QUE LO AYUDE(INCLUYE HACER EL METODO O CLASE)
                     /*llama a metodo o clase que revisa si la combinacion es exitosa,
