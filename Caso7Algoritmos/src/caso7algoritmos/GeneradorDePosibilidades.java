@@ -31,10 +31,10 @@ public class GeneradorDePosibilidades {
     public void  obtenerProbabilidades(int intentos){
         int i = 0;
         while(i < intentos){
-            probarSubSet(arrayNumeros.subList(0, 1),alfabeto.subList(0, 5)); // llama a probar, entre cuatro subsets de la lista
-            probarSubSet(arrayNumeros.subList(2, 3),alfabeto.subList(6, 12));
-            probarSubSet(arrayNumeros.subList(4, 5),alfabeto.subList(13, 19));
-            probarSubSet(arrayNumeros.subList(6, 9),alfabeto.subList(20, 25));
+            probarSubSet(arrayNumeros.subList(0, 2),alfabeto.subList(0, 6)); // llama a probar, entre cuatro subsets de la lista
+            probarSubSet(arrayNumeros.subList(2, 4),alfabeto.subList(6, 12));
+            probarSubSet(arrayNumeros.subList(4, 6),alfabeto.subList(12, 18));
+            probarSubSet(arrayNumeros.subList(6, 10),alfabeto.subList(18, 26));
             
             //reordeno la lista de letras y numeros de manera random
             Collections.shuffle(alfabeto);
@@ -51,13 +51,17 @@ public class GeneradorDePosibilidades {
         //arrays para saber si la letra ya fue elegida 
         ArrayList<String> combinacionesProbadas = new ArrayList<>(porcentajedePruebadelSubset);
         Random random = new Random();
-        int pruebasRealizadas = 0;
+        int pruebasRealizadas = 0;//variable para llevar el control de pruebas realizadas
         while(pruebasRealizadas < porcentajedePruebadelSubset){
-                Integer numeroPorProbar = subNumero.get(random.nextInt(subNumero.size()));
-                char letraPorProbar = subLetra.get(random.nextInt(random.nextInt(subLetra.size())));
+            //seleccion aleatoria de un numero y letra
+                int indiceNumeros = random.nextInt(subNumero.size());
+                int indiceLetras = random.nextInt(subLetra.size());
+                Integer numeroPorProbar = subNumero.get(indiceNumeros);
+                char letraPorProbar = subLetra.get(indiceLetras);
                 String pruebaActual = numeroPorProbar.toString() + letraPorProbar;
-                if(!combinacionesProbadas.contains(pruebaActual)){
+                if(!combinacionesProbadas.contains(pruebaActual)){//si no es una combinacion de letra y numero ya probada, la prueba
                     combinacionesProbadas.add(pruebaActual);
+
    
                     String originalString = "xZwM7BWIpSjYyGFr9rhpEa+cYVtACW7yQKmyN6OYSCv0ZEg9jWbc6lKzzCxRSSIvOvlimQZBMZOYnOwiA9yy3YU8zk4abFSItoW6Wj0ufQ0=";
                     boolean decryptedString = AES.tanteo('d','3',originalString);
