@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-
+import caso7algoritmos.AES;
 /**
  *
  * @author David
@@ -61,11 +61,17 @@ public class GeneradorDePosibilidades {
                 String pruebaActual = numeroPorProbar.toString() + letraPorProbar;
                 if(!combinacionesProbadas.contains(pruebaActual)){//si no es una combinacion de letra y numero ya probada, la prueba
                     combinacionesProbadas.add(pruebaActual);
+
+   
+                    String originalString = "xZwM7BWIpSjYyGFr9rhpEa+cYVtACW7yQKmyN6OYSCv0ZEg9jWbc6lKzzCxRSSIvOvlimQZBMZOYnOwiA9yy3YU8zk4abFSItoW6Wj0ufQ0=";
+                    boolean decryptedString = AES.tanteo('d','3',originalString);
                     
-                    //SEBAS HAGA ESTA PARTE, ME DICE SI OCUPA QUE LO AYUDE(INCLUYE HACER EL METODO O CLASE)
-                    /*llama a metodo o clase que revisa si la combinacion es exitosa,
-                      si lo es entonces le suma uno a todas las letras y numeros del subset
-                    */
+                    if(decryptedString)
+                    {
+                      
+                    }
+                    System.out.println(originalString);
+                    System.out.println(decryptedString);
                     pruebasRealizadas++;
                 }
         }

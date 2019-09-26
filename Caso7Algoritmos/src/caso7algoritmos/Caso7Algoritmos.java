@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package caso7algoritmos;
-
+import caso7algoritmos.GeneradorDePosibilidades;
 /**
  *
  * @author David
@@ -16,6 +16,8 @@ public class Caso7Algoritmos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+
         GeneradorDePosibilidades gen = new GeneradorDePosibilidades();
         gen.obtenerProbabilidades(12);
     }
