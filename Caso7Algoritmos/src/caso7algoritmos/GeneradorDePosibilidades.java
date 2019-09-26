@@ -68,10 +68,17 @@ public class GeneradorDePosibilidades {
                     
                     if(decryptedString)
                     {
-                      
+                      for(Character c : subLetra){
+                         int indice = alfabeto.indexOf(c);
+                         int probabilidadActual = alfabeto.get(indice);
+                         probabilidadLetras.set(indice, probabilidadActual+1);
+                      }
+                      for(Integer n : subNumero){
+                          int probabilidadActual = arrayNumeros.indexOf(n);
+                          probabilidadNumeros.set(n, probabilidadActual+1);
+                      }
                     }
-                    System.out.println(originalString);
-                    System.out.println(decryptedString);
+                    
                     pruebasRealizadas++;
                 }
         }
