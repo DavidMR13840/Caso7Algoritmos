@@ -16,7 +16,8 @@ public class Caso7Algoritmos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int p = 26/4;
+        GeneradorDePosibilidades gen = new GeneradorDePosibilidades();
+        gen.obtenerProbabilidades(12);
     }
     
 }
