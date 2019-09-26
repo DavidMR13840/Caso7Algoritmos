@@ -11,6 +11,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import caso7algoritmos.AES;
+import caso7algoritmos.Elemento;
+
 /**
  *
  * @author David
