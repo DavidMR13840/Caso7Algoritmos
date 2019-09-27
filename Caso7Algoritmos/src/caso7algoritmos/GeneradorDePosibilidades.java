@@ -28,8 +28,8 @@ public class GeneradorDePosibilidades {
     public GeneradorDePosibilidades(){
       this.alfabeto = new ArrayList<>(Arrays.asList('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'));
       this.arrayNumeros = new ArrayList<>(Arrays.asList('0','1','2','3','4','5','6','7','8','9'));
-      //this.alfabetoAuxiliar = new ArrayList<>(Arrays.asList('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'));
-      //this.numerosAuxiliar = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
+      this.alfabetoAuxiliar = new ArrayList<>(Arrays.asList('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'));
+      this.numerosAuxiliar = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
       this.probabilidadLetras = new ArrayList<>(26);
       this.probabilidadNumeros = new ArrayList<>(10);
       for(int i = 0; i< 26; i++)
@@ -59,8 +59,26 @@ public class GeneradorDePosibilidades {
             Collections.shuffle(numerosAuxiliar);
             i++;
         }
+        
+        int p = 0;
 
         
+    }
+    
+    public List<Elemento> devolverMayores(int num)
+    {
+      switch(num)
+      {
+        case 1:
+          Collections.sort(this.probabilidadLetras, new SortByContador());
+          List<Elemento> top5letras = probabilidadLetras.subList(21, 26);
+          return top5letras;
+        case 2:
+          Collections.sort(this.probabilidadNumeros, new SortByContador());
+          List<Elemento> top5nums = probabilidadNumeros.subList(8, 10);
+          return top5nums;
+      }
+      return null;
     }
     
     public void probarSubSet(List<Integer> subNumero, List<Character> subLetra){
@@ -81,8 +99,7 @@ public class GeneradorDePosibilidades {
                 String pruebaActual = letraPorProbar + numeroPorProbar.toString() ;
                 if(!combinacionesProbadas.contains(pruebaActual)){//si no es una combinacion de letra y numero ya probada, la prueba
                     combinacionesProbadas.add(pruebaActual);
-
-   
+                    
                     String originalString = "xZwM7BWIpSjYyGFr9rhpEa+cYVtACW7yQKmyN6OYSCv0ZEg9jWbc6lKzzCxRSSIvOvlimQZBMZOYnOwiA9yy3YU8zk4abFSItoW6Wj0ufQ0=";
                     boolean decryptedString = AES.tanteo(letraPorProbar,numeroPorProbar.toString().charAt(0),originalString);
                     
@@ -97,13 +114,13 @@ public class GeneradorDePosibilidades {
                 if (banderaLLaveCorrecta) {
                     for(Character c : subLetra){
                          int indice = alfabeto.indexOf(c);
-                         int probabilidadActual = probabilidadLetras.get(indice);
-                         probabilidadLetras.set(indice, probabilidadActual+1);
+                         Elemento probabilidadActual = probabilidadLetras.get(indice);
+                         probabilidadActual.actualizarContador();
                       }
                       for(Integer n : subNumero){
                           int indice = arrayNumeros.indexOf(n);
-                          int probabilidadActual = probabilidadNumeros.get(n);
-                          probabilidadNumeros.set(indice, probabilidadActual+1);
+                          Elemento probabilidadActual = probabilidadNumeros.get(n);
+                          probabilidadActual.actualizarContador();
                       }
                 }
             }
