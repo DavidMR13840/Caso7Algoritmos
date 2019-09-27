@@ -11,10 +11,21 @@ package caso7algoritmos;
  */
 public class Elemento {
   private char Simbolo;
-  private int contador  =0;
+  private int contador;
   
   Elemento(char s)
   {
     this.Simbolo = s;
+    this.contador = 0;
+  }
+  
+  public void actualizarContador()
+  {
+    this.contador++;
+  }
+  
+  public int getContador()
+  {
+    return this.contador;
   }
 }
