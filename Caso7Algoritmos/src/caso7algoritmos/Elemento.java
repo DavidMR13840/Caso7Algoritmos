@@ -28,4 +28,9 @@ public class Elemento {
   {
     return this.contador;
   }
+  
+  public String toString()
+  {
+    return Character.toString(Simbolo);
+  }
 }
