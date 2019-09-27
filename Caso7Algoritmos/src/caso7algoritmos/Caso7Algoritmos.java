@@ -20,7 +20,18 @@ public class Caso7Algoritmos {
         gen.obtenerProbabilidades(12);
         List<Elemento> top5letras = gen.devolverMayores(1);
         List<Elemento> top5nums = gen.devolverMayores(2);
-        //Existe un 80% de probabilidad de que la respuesta se encuentre en esas 2 listas
-    }
-    
+        
+        System.out.println("Existe un 70% de probabilidad de que la respuesta se encuentre en las siguientes 2 listas: ");
+        System.out.println("Lista letras: ");
+        for(int i =0; i < top5letras.size();i++)
+        {
+          System.out.println(top5letras.get(i)+" ");
+        }
+        System.out.println("Lista numeros: ");
+        for(int i =0; i < top5nums.size();i++)
+        {
+          System.out.println(top5nums.get(i)+" ");
+        }
+        
+    }    
 }
