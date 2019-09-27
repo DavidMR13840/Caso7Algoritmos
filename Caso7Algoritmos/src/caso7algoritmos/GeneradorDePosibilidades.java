@@ -19,20 +19,32 @@ import caso7algoritmos.Elemento;
  */
 public class GeneradorDePosibilidades {
     private final ArrayList<Character> alfabeto;
-    private final ArrayList<Integer> arrayNumeros;
-    private ArrayList<Integer> probabilidadLetras;
-    private ArrayList<Integer> probabilidadNumeros;
+    private final ArrayList<Character> arrayNumeros;
+    private ArrayList<Elemento> probabilidadLetras;
+    private ArrayList<Elemento> probabilidadNumeros;
     private ArrayList<Character> alfabetoAuxiliar;
     private ArrayList<Integer> numerosAuxiliar; 
     
     public GeneradorDePosibilidades(){
       this.alfabeto = new ArrayList<>(Arrays.asList('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'));
-      this.arrayNumeros = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
-      this.alfabetoAuxiliar = new ArrayList<>(Arrays.asList('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'));
-      this.numerosAuxiliar = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
-      this.probabilidadLetras = new ArrayList<>(Arrays.asList(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0));
-      this.probabilidadNumeros = new ArrayList<>(Arrays.asList(0,0,0,0,0,0,0,0,0,0));
+      this.arrayNumeros = new ArrayList<>(Arrays.asList('0','1','2','3','4','5','6','7','8','9'));
+      //this.alfabetoAuxiliar = new ArrayList<>(Arrays.asList('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'));
+      //this.numerosAuxiliar = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
+      this.probabilidadLetras = new ArrayList<>(26);
+      this.probabilidadNumeros = new ArrayList<>(10);
+      for(int i = 0; i< 26; i++)
+      {
+        Elemento aInsertar = new Elemento(alfabeto.get(i));
+        this.probabilidadLetras.add(aInsertar);
+      }
+      
+      for(int i = 0; i< 10; i++)
+      {
+        Elemento aInsertar = new Elemento(arrayNumeros.get(i));
+        this.probabilidadNumeros.add(aInsertar);
+      }
     }
+    
     
     public void  obtenerProbabilidades(int intentos){
         int i = 0;
