@@ -60,7 +60,7 @@ public class GeneradorDePosibilidades {
             i++;
         }
         
-        int p = 0;
+
 
         
     }
